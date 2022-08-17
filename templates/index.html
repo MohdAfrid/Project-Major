@@ -1,0 +1,201 @@
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+
+    <title>Machine Learning Lab</title>
+
+<style>
+
+       .form1 {
+            /* background: #000000; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            flex-direction: column;
+            /* width: 500px; */
+            border-left-width: 250px;
+            border: 2px solid #ccc;
+            /* padding: 30px; */
+            background: cyan;;
+            border-radius: 15px;
+            /* margin-right: 100px; */
+        }
+
+         .a{
+        color:aqua;
+        background-color: whitesmoke;
+
+         }
+         body{
+    background-color: whitesmoke;
+}
+  
+
+</style>
+
+</head>
+
+<body>
+    <nav style="width: 100%; background-color: lightskyblue;" class="navbar ">
+         <a class="  navbar-brand" href="#" style="margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-botttom: 0px;"><center>
+             <img style="max-height: auto; width:98%; border-radius: 20px" src="{{ url_for('static',filename = 'image/PIET logo with tagline.jpg')  }}" 
+             class="img-responsive" style="margin-top:0px;style=width: auto; height: auto; min-width:100%; min-height: auto;"></center>
+
+              <a href="/aboutusnew" style="color: royalblue;font-family: fantasy; font-size: 25px;margin-left: 400px;">ABOUT US</a>
+              <a href="/moreprojects" style="color: royalblue;font-family: fantasy; font-size: 25px;text-align: center;">MORE PROJECTS</a>
+              <a href="/gallery" style="color: royalblue;font-family: fantasy; font-size: 25px;margin-right: 400px;">GALLERY</a>
+              
+      </div>
+           
+        </a>
+        
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block">
+
+                <img src="{{ url_for('static',filename = 'image/dpforml.jpg')  }}" class="img-fluid"
+                    style="width: auto; height: 200px; min-width: 400px;min-height: 300px;padding-top: 10px;">
+
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 " style=" padding: 30px;">
+                <h1  style="color:#000000"><B> <i>Amazon Product Review Sentiment Analysis<B><i></h1>
+                <br><br>
+                <p style="font-size:20px;text-align:justify; color: #808000"><i>It is a Internship project developed under Summer Internship 2022 at Poornima Institute of Engineering & Technology, Jaipur.This  Summer Internship 2022 on Machine Learning and Data Science was conducted from 27 June 2022 to 14 August 2022</i>  </p>
+              
+                
+                <br><br>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="card mb-3 "; style="background-color:whitesmoke;border-width: 2px;border-radius: 20px;border-color: darkcyan;">
+ 
+                        <div class="card-body">
+                            <h5 class="card-title"; style="text-align:center">Sentiment Analysis Using Gaussian Naive Baise Model</h5>
+                           
+                            <!-- Main Input For Receiving Query to our ML -->
+   <div class="form1">
+        <form action="{{ url_for('predict')}} "method="get" class="row g-3 my-4">
+
+            <div class="col-12" style="color: #000;">
+            <center><label for="floatingInput">Enter Text</label></center>
+             <center> <textarea class="longInput" cols="30" rows="10" style="width: 1000px; height: 200px; resize: none; font-size:20pt; font-family: monospace;"font-id="text" name="text" required="required"></textarea></center> 
+            </div>
+            <br>
+            <br>
+
+            <div class="col-12"><center>
+                <button type="submit" value="NB" name="NB" class="btn btn-primary"style="border-radius: 12px;">Submit</button></center>
+            </div>
+            <br>
+        </form>
+        
+        
+        <p style="color: black;">
+          {{prediction_text}}
+        </p>
+
+    </div>
+
+
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+           
+    <br>
+    
+    <div class="col-md-12">
+              <center><h3 class="section-title" style="text-align: center; color:royalblue;">Sponsored By</h3></center>
+            </div>
+          
+          <br>
+          <br>
+    
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="card mb-3">
+            
+                    <div class="card">
+                        <img style="max-height: 200px;" src="{{ url_for('static',filename = 'image/AICTEIdeaLabFooterLogo.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center;color:black;">IDEA LAB</h5>
+                            
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-md-4">
+                <div class="card mb-3">
+            
+                    <div class="card">
+                        <img style="max-height: 200px;" src="{{ url_for('static',filename = 'image/nbanew.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center;color:black;">NBA</h5>
+                            
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-10 col-md-3">
+                <div class="card mb-3">
+
+                    <div class="card">
+                        <img style="max-height: 200px;"
+                            src="{{ url_for('static',filename = 'image/aicte-logo.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"; style="text-align:center; color:black">AICTE MODROB DEEP LEARNING LAB</h5>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        
+               
+    
+    <br><br><br><br><br>
+    <div class="fixed-bottom ">
+        <div style="min-height: 40px;">
+
+            <marquee style="background-color:white; color:royalblue; margin-top: 7px;">
+                <h9>Developed By Mohd Afrid, PIET</h9>
+            </marquee>
+        </div>
+    </div>
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}"></script>
+
+</body>
+
+</html>
+
