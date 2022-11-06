@@ -6,11 +6,11 @@ import pickle
 app = Flask(__name__)   
 model=pickle.load(open('ARSA.pkl','rb'))
 
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(max_features = 5000)
+from sklearn.feature_extraction.text import TfidfVectorizer
+tfidf_vectorizer  = TfidfVectorizer(max_features=5000,ngram_range=(2,2))
 corpus=pd.read_csv('ARSAcorpus.csv')
 corpus1=corpus['corpus'].tolist()
-X = cv.fit_transform(corpus1).toarray()
+X = tfidf_vectorizer.fit_transform(corpus1).toarray()
 
 
 @app.route('/')
@@ -25,7 +25,7 @@ def predict():
     
     text = (request.args.get('text'))
     text=[text]
-    input_data = cv.transform(text).toarray()
+    input_data = tfidf_vectorizer.transform(text).toarray()
     
     
     prediction = model.predict(input_data)
